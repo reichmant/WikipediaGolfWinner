@@ -1,0 +1,15 @@
+D-Level Testing:
+
+Performed cout at pretty much every level. You can see various lines in SimpleCurl.cpp and SimpleCurlTest.cpp that begin with //TESTING: that show this. Essentially, we make sure the provided curl stuff (buffer setting, etc.) made it through. This also helped make sure SSL support was implemented. I also used output to check where in the code 
+
+C-Level Testing:
+
+In BFS, we used couts for making sure parents were found.
+We made sure it would output infinitely, as it had no limit implemented yet.
+We later put in limit as argument.
+
+B-Level Testing:
+I tested this with the target words and used various code that is much better explained in the comments. Also moved stuff to GrabUrls.h to make sure the included code worked when it was supposed it.
+
+ A-Level Testing:
+ Made sure the argvs were passed in correctly by using couts throughout BFS. Once again, this is better explained in the comments.

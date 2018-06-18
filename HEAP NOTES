@@ -1,0 +1,101 @@
+A heap is a tree w/ properties. Even just a single node!
+
+Tree: A graph that has no cycles.
+
+A heap can have 0, 1, or 2 children.
+	if 0 children, that's a LEAF hehe.
+	Only 1 child? It's the left child.
+
+*Heap property: value of parent is less than
+value of either child.
+
+Implementation 
+ 0  1  2  3  4  5  6  ...
+[X][H][E][A][P][_][_] ...
+
+child i=5
+PAINT.jpg
+Remember, 5/2 = 2
+
+So you always have
+parent = (child/2)
+
+
+insert, deleteMin
+
+							7
+				44						15
+		291				45		86				171
+	1337	5*
+
+	insert(5)
+
+HeapifyUp:
+check if less than parent over and over and over
+until orphan parent (in this case 7).
+
+O(log(n)) levels
+climbing up takes time to heapifyUp.
+
+HeapifyUp(item)
+
+values[length+1] = item
+
+++length
+i = length
+parent = i/2
+
+while (parent != 0 && values[i]<values[parent])
+	{
+	swap(values[i],values[parent])
+	//reference values offfffffffffff swap stuff for java v. C++?         .
+	//now go to parent
+	i = parent;
+	parent = i/2 //probably log(n) time because we cuttin we lookin for in half.
+	} //probably theta(n)
+
+
+
+
+
+
+Heapify Down
+
+result = 5
+Swap with smaller of the children.
+so 58 moves down, 7 moves up
+
+it's log(n) because the /2 thing. Divide and conquer, kinda like binary search!
+
+[delete min, heapify down] log(n) times SORTS the list.
+
+Super effecient!
+
+HeapifyDown(parent)
+	left = parent * 2
+	right = left + 1
+	//moffwea riybfye nt
+	if left > length
+		return
+	else
+		smallest = left
+		//test it
+		if (right >= length)
+			if (values[right]<values[left])
+				smallest = right
+				//now just compare to parent
+		if (values[smallest] < vales[parent])
+			{
+				swap(values[parent], values[smallest])
+				HeapifyDown(smallest)//recursive!!
+			}
+
+
+HeapSort: O(n*log(n)) so we super happppy :0 :)
+
+deleteMin()
+	result = values[i] //make sure heap isnt empty irl tho
+	values[i] = values[lensH]
+	--length
+	HeapifyDown(1)
+	return result
